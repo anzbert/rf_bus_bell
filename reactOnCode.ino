@@ -1,7 +1,13 @@
-// using `RF433any' - Copyright 2021 Sébastien Millet
-// Schematic: Radio Frequencies RECEIVER plugged on D2
+/* Libraries used: 
+    - Arduino
+    - RF433any - by Sébastien Millet
 
-#include "RF433any.h"
+Radio Frequencies RECEIVER on pin: D2
+Test LED on D9
+Solenoid trigger on D10
+*/
+
+#include "RF433any.h" // available on arduino package manager
 #include <Arduino.h>
 
 #define PIN_RFINPUT 2
