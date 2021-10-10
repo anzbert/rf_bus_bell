@@ -93,8 +93,7 @@ void loop()
     while (pdec)
     {
         const BitVector *pdata = pdec->get_pdata();
-        assert(pdata); // Must be the case (RF433ANY_FD_DECODED in the call to
-        // get_data() above).
+        assert(pdata); // Must be the case (RF433ANY_FD_DECODED in the call to get_data() above).
         char *buf = pdata->to_str();
         assert(buf);
         serial_printf("Received %c(%d): %s -- %d bytes\n", pdec->get_id_letter(),
