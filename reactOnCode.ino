@@ -100,7 +100,7 @@ void loop()
                       pdata->get_nb_bits(), buf, pdata->get_nb_bytes());
         free(buf);
 
-        // correct code if it consists of 12 bits and 2 bytes
+        // correct code if it consists of 12 bits and 2 bytes, as in the cheap bunnings remote in use
         if (pdata->get_nb_bits() == 12 && pdata->get_nb_bytes() == 2)
         {
             ring = true;
