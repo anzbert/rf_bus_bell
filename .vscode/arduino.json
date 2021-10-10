@@ -1,0 +1,7 @@
+{
+    "board": "arduino:avr:micro",
+    "sketch": "reactOnCode.ino",
+    "port": "/dev/cu.usbmodem101",
+    "output": "../reactOnCode_build",
+    "programmer": "avrispmkii"
+}
