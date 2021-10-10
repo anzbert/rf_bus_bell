@@ -57,14 +57,16 @@ Track track(PIN_RFINPUT);
 bool ring = false;
 bool ringBell(bool ring)
 {
-    digitalWrite(TRIGGER_OUT, HIGH); // solenoid up
-    digitalWrite(LED_OUT, HIGH);     // solenoid up
+    if (ring == true)
+    {
+        digitalWrite(TRIGGER_OUT, HIGH); // solenoid up
+        digitalWrite(LED_OUT, HIGH);     // solenoid up
 
-    delay(400);
+        delay(400);
 
-    digitalWrite(TRIGGER_OUT, LOW); // solenoid down
-    digitalWrite(LED_OUT, LOW);     // solenoid down
-
+        digitalWrite(TRIGGER_OUT, LOW); // solenoid down
+        digitalWrite(LED_OUT, LOW);     // solenoid down
+    }
     return false;
 }
 
