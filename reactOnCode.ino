@@ -59,13 +59,13 @@ bool ringBell(bool ring)
 {
     if (ring == true)
     {
-        digitalWrite(TRIGGER_OUT, HIGH); // solenoid up
-        digitalWrite(LED_OUT, HIGH);     // solenoid up
+        digitalWrite(TRIGGER_OUT, HIGH); // Bell solenoid up
+        digitalWrite(LED_OUT, HIGH);     // LED on
 
         delay(400);
 
-        digitalWrite(TRIGGER_OUT, LOW); // solenoid down
-        digitalWrite(LED_OUT, LOW);     // solenoid down
+        digitalWrite(TRIGGER_OUT, LOW); // Bell solenoid back down
+        digitalWrite(LED_OUT, LOW);     // LED off
     }
     return false;
 }
@@ -86,7 +86,6 @@ void loop()
     {
         delay(1);
     }
-    // track.wait_free_433();
 
     Decoder *pdec0 = track.get_data(
         RF433ANY_FD_DECODED | RF433ANY_FD_DEDUP | RF433ANY_FD_NO_ERROR);
@@ -102,7 +101,7 @@ void loop()
                       pdata->get_nb_bits(), buf, pdata->get_nb_bytes());
         free(buf);
 
-        // correct code if it consists of 12 bits and 2 bytes, as in the cheap bunnings remote in use
+        // React on code if it consists of 12 bits and 2 bytes, as in that shitty bunnings remote ;)
         if (pdata->get_nb_bits() == 12 && pdata->get_nb_bytes() == 2)
         {
             ring = true;
@@ -113,5 +112,6 @@ void loop()
     delete pdec0;
 
     ring = ringBell(ring);
+
     track.wait_free_433();
 }
