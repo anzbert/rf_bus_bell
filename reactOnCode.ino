@@ -1,18 +1,19 @@
 /* Libraries used: 
     - Arduino
-    - RF433any - by Sébastien Millet
+    - RF433any - by Sébastien Millet (from https://github.com/sebmillet/RF433any or Arduino Package Manager)
 
-Radio Frequencies RECEIVER on pin: D2
-Test LED on D9
-Solenoid trigger on D10
+    Pins:
+RF 433Mhz RECEIVER: D2  (Input)
+Test LED:           D9  (Output)
+Bell Solenoid:      D10 (Output)
 */
 
-#include "RF433any.h" // available on arduino package manager
+#include "RF433any.h"
 #include <Arduino.h>
 
 #define PIN_RFINPUT 2
-#define TRIGGER_OUT 10
 #define LED_OUT 9
+#define TRIGGER_OUT 10
 
 #define ASSERT_OUTPUT_TO_SERIAL
 
